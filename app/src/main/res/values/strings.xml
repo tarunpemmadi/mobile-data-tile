@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobile Data Tile</string>
+    <string name="tile_label">Mobile data</string>
+    <string name="tile_setup">Tap to set up</string>
+    <string name="tile_subtitle">Mobile data</string>
+    <string name="window_today">Today</string>
+    <string name="window_cycle">Cycle</string>
+    <string name="mode_daily">Daily (resets at midnight)</string>
+    <string name="mode_cycle">Billing cycle</string>
+    <string name="counting_mode_label">Counting mode</string>
+    <string name="cycle_start_day">Cycle resets on day</string>
+    <string name="usage_placeholder">\u2014</string>
+    <string name="usage_access_missing">Usage access needed to read data stats</string>
+    <string name="usage_access_granted">Usage access granted</string>
+    <string name="grant_usage_access">Grant usage access</string>
+    <string name="add_tile_hint">To add the tile: pull the notification shade all the way down, tap the edit (pencil) icon, and drag \"Mobile data\" into your tiles.</string>
+</resources>

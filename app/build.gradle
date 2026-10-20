@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Load signing config from keystore.properties (not committed to git).
+def keystoreProps = new Properties()
+def keystorePropsFile = rootProject.file('keystore.properties')
+if (keystorePropsFile.exists()) {
+    keystorePropsFile.withInputStream { keystoreProps.load(it) }
+}
+
+android {
+    namespace 'com.mobiledata.tile'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.mobiledata.tile"
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            if (keystoreProps['KEYSTORE_FILE']) {
+                storeFile rootProject.file(keystoreProps['KEYSTORE_FILE'])
+                storePassword keystoreProps['KEYSTORE_PASSWORD']
+                keyAlias keystoreProps['KEY_ALIAS']
+                keyPassword keystoreProps['KEY_PASSWORD']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig keystoreProps['KEYSTORE_FILE']
+                    ? signingConfigs.release
+                    : signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+}
